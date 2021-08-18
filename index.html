@@ -76,8 +76,38 @@
 </head>
 
 <body>
+    <style>
+    .legend label,
+    .legend span {
+      display:block;
+      float:left;
+      height:15px;
+      width:20%;
+      text-align:center;
+      font-size:9px;
+      color:#808080;
+      }
+    </style>
+    
+    <!-- Set the display of this container to none so we can
+         add it programmatically to `legendControl` -->
+    <div id='legend' style='display:none;'>
+      <strong>The Title or Explanation of your Map</strong>
+      <nav class='legend clearfix'>
+        <span style='background:#F1EEF6;'></span>
+        <span style='background:#BDC9E1;'></span>
+        <span style='background:#e55e5e;'></span>
+        <span style='background:#3bb2d0;'></span>
+        <span style='background:#F88379;'></span>
+        <label>0 - 20%</label>
+        <label>40%</label>
+        <label>Shopping Retail</label>
+        <label>Health & Wellness</label>
+        <label>Beauty</label>
+        <small>Source: <a href="#link to source">Name of source</a></small>
+    </div>
+    <div id='map'></div>
 
-  <div id='map'></div>
   <script>
 
     var transformRequest = (url, resourceType) => {
@@ -129,9 +159,31 @@
                 'data': data
               },
               'paint': {
-                'circle-radius': 5,
-                'circle-color': "red"
-              }
+            // Make circles larger as the user zooms from z12 to z22.
+            'circle-radius': {
+                'base': 1.75,
+                'stops': [
+                [12, 2],
+                [22, 180]
+                ]
+                },
+            // Color circles by industry, using a `match` expression.
+                'circle-color': [
+                'match',
+                ['get', 'industry'],
+                'Bars / Nightlife', 
+                '#fbb03b',
+                'Restaurants / Coffee Shops',
+                '#DAF7A6',
+                'Shopping / Retail',
+                '#e55e5e',
+                'Health & Wellness',
+                '#3bb2d0',
+                'Beauty',
+                '#F88379',
+                /* other */ '#ccc'
+                ]
+                }
             });
 
 
