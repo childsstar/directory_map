@@ -152,8 +152,8 @@
 
       function makeGeoJSON(csvData) {
         csv2geojson.csv2geojson(csvData, {
-          latfield: 'smartystreets__Billing_Latitude__c',
-          lonfield: 'smartystreets__Billing_Longitude__c',
+          latfield: 'BillingLatitude',
+          lonfield: 'BillingLongitude',
           delimiter: ','
         }, function (err, data) {
           map.on('load', function () {
