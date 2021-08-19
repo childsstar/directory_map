@@ -100,7 +100,8 @@
         margin-right: 5px;
         width: 10px;
         }
-    </style>
+        
+</style>
     
     <!-- Set the display of this container to none so we can
          add it programmatically to `legendControl` -->
@@ -108,13 +109,11 @@
  
          <div id="legend" class="legend">
          <h4>Business Industries</h4>
-         <div><span style='background:#fbb03b;'></span>Bars / Nightlife</div>
+         <div><span style='background:#3bb2d0;'></span>Bars / Nightlife</div>
          <div><span style='background:#DAF7A6;'></span>Restaurants / Coffee Shops</div>
-         <div> <span style='background:#e55e5e;'></span>Shopping / Retail</div>
-         <div><span style='background:#3bb2d0;'></span>Health & Wellness</div>
-         <div><span style='background:#C87BF4;'></span>Beauty</div>
          <div><small>Source: <a href="https://www.nycsmallbusinessresourcenetwork.org/">NYC Small Business Resource Network</a></small></div>
     </div>
+           
 
   <script>
 
@@ -128,7 +127,7 @@
           : url
       };
     };
-    //YOUR TURN: add your Mapbox token
+    //Mapbox token
     
     mapboxgl.accessToken = 'pk.eyJ1IjoiY2l0aWVzZW5zZSIsImEiOiJpcXhSRkdjIn0.5UdfHKjDqOusDF0CUNaQhw'; //Mapbox token 
     var map = new mapboxgl.Map({
@@ -180,7 +179,7 @@
                 'match',
                 ['get', 'Business_Industry__c'],
                 'Bars / Nightlife', 
-                '#fbb03b',
+                '#3bb2d0',
                 'Restaurants / Coffee Shops',
                 '#DAF7A6',
                 'Shopping / Retail',
@@ -257,6 +256,7 @@
             
             // Add legend
                 const LegendEl = document.getElementById('legend');
+
 
 
   </script>
